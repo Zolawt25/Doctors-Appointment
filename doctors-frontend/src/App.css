@@ -1,0 +1,952 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+/* Navbar */
+
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5% 10%;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+.active{
+    background: url(/public/img/header-bg.png); 
+}
+.nav-left img{
+ width: 110px;
+}
+.nav-center{
+    display: flex;
+    column-gap: 30px;
+}
+.nav-center a{
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.4s;
+}
+.nav-center a:hover{
+    color: #1350ee;
+}
+.nav-right a{
+    text-decoration: none;
+    color: #dcf1fd;
+    font-size: 12px;
+    background-color: #1350ee;
+    padding: 7px 15px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 9px -1px;
+    transition: 0.5s;
+}
+
+/* Header */
+
+.headerContainer{
+    /* height: 100vh; */
+    background: url(/public/img/Blur.png);
+    padding: 10% 10%;
+    display: flex;
+    background-repeat: no-repeat;
+}
+.headerLeft{
+    flex: 1;
+}
+.headerLeft h1{
+    font-size: 47px;
+    padding-right: 15px;
+    color: #111;
+    margin-bottom: 13px;
+}
+.headerDesc{
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+    padding-right: 20px;
+    margin-bottom: 40px;
+}
+.headerLeft a{
+    text-decoration: none;
+    color: #dcf1fd;
+    font-size: 13px;
+    font-weight: 700;
+    background-color: #1350ee;
+    padding: 12px 4%;
+    border-radius: 50px;
+}
+.headerExperience{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 13%;
+}
+.headerExperienceContainer{
+    flex: 1;
+}
+.headerUnderline1{
+    background-color: #da991e;
+    width: 100%;
+    height: 7px;
+    border-radius: 50px;
+}
+.headerUnderline2{
+    background-color: #7654ad;
+    width: 100%;
+    height: 7px;
+    border-radius: 50px;
+}
+.headerUnderline3{
+    background-color: #1c909e;
+    width: 100%;
+    height: 7px;
+    border-radius: 50px;
+}
+.headerExperienceSubContainer{
+    width: 80px;
+    margin-bottom: 10px;
+}
+.headerExperienceSubContainer p{
+    font-size: 33px;
+    font-weight: 700;
+}
+.headerExperienceContainer span{
+    font-size: 13px;
+    color: #444;
+    font-weight: 500;
+}
+.headerRight{
+    flex: 1.3;
+    display: flex;
+}
+.headerImgContaLeft{
+    flex: 1;
+    display: flex;
+    margin-left: 100px;
+    margin-right: 22px;
+}
+.headerImgContaLeft img{
+    height: 400px;
+}
+.headerImgContaRight{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.headerImgContaRight img{
+    width: 220px;
+    margin-top: 20px;
+}
+
+/* Service */
+
+.serviceContainer{
+    padding: 50px 10%;
+}
+.serviceContainer h2{
+    text-align: center;
+    font-size: 35px;
+    color: #111;
+}
+.aaa{
+    margin-bottom: 10px;
+}
+.serviceP{
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+    font-weight: 400;
+}
+.serviceWrapper{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.serviceIconContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 29%;
+}
+.serviceImg{
+    display: flex;
+    width: 65%;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.serviceImgImg1{
+    width: 180px;
+}
+.serviceImgImg{
+    width: 150px;
+}
+.serviceIconContainer p{
+    text-align: center;
+    font-size: 13px;
+    color: #333;
+}
+.serviceIconContainer h3{
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #111;
+}
+.serviceIcon{
+    margin-top: 20px;
+    border: solid #111 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+}
+
+/* Features */
+
+.featuresContainer{
+    display: flex;
+    padding: 80px 10%;
+}
+.featuresLeft{
+    flex: 1;
+    position: relative;
+}
+.featuresLeftImg1{
+    width: 380px;
+}
+.featuresLeftImg2{
+    width: 250px;
+    position: absolute;
+    bottom: 20px;
+    left: 210px;
+}
+.featuresRight{
+    flex: 1;
+}
+.featuresRight h2{
+    font-size: 35px;
+    color: #111;
+    margin-bottom: 10px;
+}
+.featuresRight p{
+    margin-bottom: 25px;
+    font-size: 14px;
+    padding-right: 40px;
+    color: #444;
+}
+.featuresRight button{
+    border: none;
+    background-color: #1350ee;
+    color: #dcf1fd;
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-top: 50px;
+}
+
+/* Medical */
+
+.medicalConatainer{
+    padding: 50px 10%;
+}
+.medicalConatainer h2{
+    text-align: center;
+    font-size: 35px;
+    color: #111;
+    margin-bottom: 15px;
+}
+.medicalWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    justify-content: space-between;
+}
+.medicalDescWrapper{
+    margin-bottom: 30px;
+    width: 28.6%;
+}
+.medicalDescWrapper h3{
+    color: #111;
+    margin-bottom: 10px;
+}
+.medicalDescWrapper p{
+    font-size: 12.8px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.medicalIconWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.medicalIcon{
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    border: #111 solid 1px;
+    border-radius: 100%;
+}
+.medicalIconNumber1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+    color:#da991e;
+    background-color: #ffdc9ab7;
+    font-size: 15px;
+}
+.medicalIconNumber2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+    color: #7654ad;
+    background-color: #cdaeff;
+    font-size: 15px;
+}
+.medicalIconNumber3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    border-radius: 5px;
+    color: #1c909e;
+    background-color: #aaf7ff;
+    font-size: 15px;
+}
+
+/* Vertual */
+
+.vertualConatainer{
+    padding: 70px 10%;
+    display: flex;
+}
+.vertualvertualLeft{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.vertualvertualLeft h2{
+    font-size: 35px;
+    padding-right: 100px;
+    color: #111;
+    margin-bottom: 10px;
+}
+.vertualvertualLeft p{
+    font-size: 14px;
+    color: #444;
+    padding-right: 40px;
+    margin-bottom: 15px;
+}
+.vertualvertualLeft button{
+    border: none;
+    background-color: #1350ee;
+    color: #dcf1fd;
+    padding: 12px 22px;
+    border-radius: 50px;
+    font-weight: 700;
+    margin-top: 25px;
+    width: 140px;
+}
+.vertualvertualRight{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+.vertualvertualRightImg1{
+    width: 450px;
+}
+.vertualvertualRightImg2{
+    width: 230px;
+    height: 130px;
+    position: absolute;
+    bottom: 30px;
+    right: 260px;
+}
+
+/* Doctors */
+
+.doctorsContainer{
+    padding: 50px 10%;
+}
+.doctorsContainer h2{
+    text-align: center;
+    font-size: 35px;
+    color: #111;
+    margin-bottom: 15px;
+}
+.doctorsWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+.doctorsDoctor h3{
+    color: #111;
+    margin-top: 12px;
+}
+.doctorsSkill{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.doctorsSkill p{
+    font-size: 12px;
+    font-weight: 900;
+    color: #01B5C5;
+    background-color: #01b5c533;
+    padding: 8px 15px;
+    border-radius: 3px;
+}
+.doctorsStar{
+    display: flex;
+    align-items: center;
+}
+.doctorsStar span{
+    font-size: 13px;
+    font-weight: 500;
+}
+.doctorsHospital{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+.doctorsHospital p{
+    font-size: 12px;
+    color: #444;
+}
+.doctorsHospitalIcon{
+    border: #111 solid 1px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Questions */
+
+.questionsContainer{
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+}
+.questionsLeft{
+    flex: 1;
+    display: flex;
+}
+.questionsImg{
+    width: 100%;
+    display: flex;
+}
+.questionsImg img{
+    width: 350px;
+}
+.questionsRight{
+    flex: 1;
+}
+.questionsRight h2{
+    font-size: 35px;
+    color: #111;
+    margin-bottom: 15px;
+}
+/*  */
+.questionContainer{
+    margin-bottom: 15px;
+    border: solid silver 0.5px;
+    border-radius: 10px;
+    padding: 15px 15px;
+    transition: 0.3s;
+}
+.questionContainer div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.questionContainer span{
+    font-size: 25px;
+    height: 25px;
+    border: 1px solid #222;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.questionContainer h3{
+    color: #222;
+    font-size: 18px;
+}
+.questionContainer p{
+    font-size: 12px;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Footer */
+
+.footerContainer{
+    padding: 20px 10%;
+    margin-top: 30px;
+    display: flex;
+    padding-bottom: 30px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footerLogo{
+    flex: 2;
+}
+.footerLogo img{
+    width: 110px;
+}
+.footerLogo p{
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 15px;
+}
+.footerIcons{
+    margin-top: 10px;
+}
+.footerIcons span{
+    margin-right: 7px;
+    border: 1px #222 solid;
+    padding: 5px 9px;
+    border-radius: 50%;
+}
+.footerLinks{
+    flex: 1;
+}
+.footerLinks h4{
+    color: #222;
+    margin-bottom: 13px;
+}
+.footerLinks a{
+    display: block;
+    text-decoration: none;
+    color: #444;
+    font-size: 13px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+.footerLinks a:hover{
+    color: #1350ee;
+}
+
+/* ServicesPage */
+
+.servicesPageCont{
+    margin-top: 80px;
+}
+
+/* Find */
+
+.findWrapper{
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+.findSearch{
+    background-color: #fcf5e6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+.findSearch h2{
+    font-size: 33px;
+    color: #111;
+    margin-bottom: 15px;
+}
+.findSearch form{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+.findSearch button{
+    padding: 12px 15px;
+    background-color: #1350ee;
+    color: #dcf1fd;
+    font-weight: 550;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+.findSearch input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: #01b5c533;
+    padding-left: 10px;
+    border-radius: 5px 0 0 5px;
+}
+.doctorsContainer2{
+    padding: 30px 10%;
+}
+
+/* DoctorPage */
+
+.doctorPageWrapper{
+    padding: 130px 10% 75px;
+    display: flex;
+}
+.doctorPageLeft{
+    flex: 2;
+    padding-right: 10%;
+}
+.doctorPageDoctor{
+    display: flex;
+    align-items: center;
+}
+.doctorPageImg img{
+    width: 160px;
+    margin-right: 15px;
+}
+.doctorPageInfoP{
+    font-size: 12px;
+    font-weight: 900;
+    color: #01B5C5;
+    background-color: #01b5c533;
+    padding: 8px 15px;
+    border-radius: 3px;
+    display: inline;
+}
+.doctorPageInfo h4{
+    color: #111;
+    margin-top: 15px;
+}
+.doctorPageInfo span{
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+}
+.doctorPageInfo i{
+    font-weight: 300;
+    font-size: 11px;
+    font-style: normal;
+}
+.doctorPageInfoSkill{
+    font-size: 11.7px;
+    margin-top: 10px;
+    color: #444;
+}
+.doctorPageDesc{
+    margin-top: 35px;
+}
+.doctorPageLinks{
+    display: flex;
+    width: 100%;
+    border-bottom: 0.2px silver solid;
+}
+.doctorPageLinks p{
+    padding: 0 12px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #111;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.doctorPageLinksA{
+    border-bottom: solid 1px #999;
+}
+.doctorPageAboutTitle{
+    font-size: 15px;
+    font-weight: 500;
+    color: #111;
+    margin-bottom: 15px;
+}
+.doctorPageAboutTitle span{
+    font-size: 17px;
+    color: #01B5C5;
+    font-weight: 700;
+}
+.doctorPageAboutText{
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 35px;
+}
+.doctorPageAboutEducation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    margin-bottom: 20px;
+}
+.doctorPageAboutEducationYear{
+    font-size: 13px;
+    color: #01B5C5;
+    font-weight: 550;
+}
+.doctorPageAboutEducationDeg{
+    font-size: 13.7px;
+    color: #333;
+    font-weight: 500;
+}
+.doctorPageAboutEducationColl{
+    font-size: 11px;
+    font-weight: 600;
+    color: #222;
+}
+.doctorPageReviewCont{
+    margin-bottom: 18px;
+}
+.doctorPageReviewId{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.doctorPageReviewProfile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+}
+.doctorPageReviewImg img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.doctorPageReviewName{
+    font-size: 14px;
+    font-weight: 600;
+    color: #1350ee;
+}
+.doctorPageReviewDate{
+    font-size: 11px;
+    color: #333;
+}
+.doctorPageReviewComment{
+    margin-left: 50px;
+    font-size: 13.5px;
+    color: #333;
+}
+.feedbackBtn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+.feedbackBtn button{
+    color: #dcf1fd;
+    font-size: 13px;
+    background-color: #1350ee;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+.feedbackInputcontainer{
+    margin-top: 40px;
+}
+.feedbackStars p{
+    font-size: 13px;
+    font-weight: 550;
+    color: #222;
+}
+.feedbackStars div{
+    margin-top: 10px;
+}
+.feedbackInput p{
+    font-size: 13px;
+    font-weight: 550;
+    color: #222;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.feedbackInput button{
+    color: #dcf1fd;
+    font-size: 13px;
+    background-color: #1350ee;
+    padding: 12px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+}
+.feedbackInput textarea{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.doctorPageRight{
+    flex: 1.3;
+}
+.doctorRightContianer{
+    width: 70%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 50px -1px #0000002c;
+}
+.doctorRightPrice{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.doctorRightPrice p{
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+.doctorRightPrice span{
+    font-weight: 900;
+    color: #222;
+}
+.doctorRightContianer h5{
+    color: #222;
+    margin-bottom: 10px;
+}
+.doctorRightTime{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11.8px;
+    font-weight: 520;
+    color: #333;
+    margin-bottom: 6px;
+}
+.doctorRightContianer a{
+    text-decoration: none;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #1350ee;
+    color: #dcf1fd;
+    margin-top: 25px;
+    font-size: 12px;
+    font-weight: 530;
+    border-radius: 5px;
+}
+
+/* Login */
+
+.loginRapper{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loginForm{
+    padding: 30px;
+    width: 30%;
+    box-shadow: 0 0 15px -1px #3333332f;
+}
+.loginForm span{
+    color: #0067FF;
+}
+.loginForm form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.loginForm input{
+    margin-bottom: 15px;
+    padding: 10px 4px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #00000049;
+    border-radius: 2px;
+    background-color: #E3E9F9;
+}
+.loginForm button{
+    cursor: pointer;
+    padding: 10px 0;
+    background-color: #1350ee;
+    color: #dcf1fd;
+    border: none;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+.loginFormAccount{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.loginFormAccount p{
+    font-size: 12px;
+    color: #444;
+}
+.loginFormAccount a{
+    text-decoration: none;
+    color: #1350ee;
+    font-weight: 550;
+    font-size: 12px;
+}
+
+/* Register */
+
+.registerRapperContainer{
+    display: flex;
+    align-items: center;
+    width: 63%;
+    margin-top: 40px;
+}
+.registerLeft{
+    flex: 1;
+    display: flex;
+}
+.registerLeft img{
+    width: 420px;
+    border-radius: 5px 0 0 5px;
+}
+.registerRight{
+    flex: 1;
+    padding: 5%;
+}
+.registerRight span{
+    color: #0067FF;
+}
+.registerRight form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.registerRight input{
+    margin-bottom: 15px;
+    padding: 10px 4px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #00000049;
+    border-radius: 2px;
+    background-color: #E3E9F9;
+}
+.registerRight button{
+    cursor: pointer;
+    padding: 10px 0;
+    background-color: #1350ee;
+    color: #dcf1fd;
+    border: none;
+    border-radius: 5px;
+    margin-top: 7px;
+}
