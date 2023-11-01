@@ -1,9 +1,11 @@
 // import React from 'react'
 
-const AboutDoctor = () => {
+const AboutDoctor = ({name}) => {
   return (
     <div className='doctorPageAbout'>
-        <h4 className='doctorPageAboutTitle'>About of <span>Dr. Alfaz Ahmed</span></h4>
+
+
+        <h4 className='doctorPageAboutTitle'>About of <span>{name}</span></h4>
         <p className='doctorPageAboutText'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione aperiam laudantium voluptate eum recusandae asperiores velit expedita hic laborum quam magni ex enim officia, adipisci perferendis amet fugiat sequi! Mollitia architecto itaque, laudantium sequi voluptas ea quia error modi, deserunt amet, debitis pariatur explicabo? Nisi ab voluptas beatae ipsa. Eveniet provident, culpa saepe omnis consectetur cupiditate et iste aut magni? Ratione aperiam laudantium voluptate eum recusandae asperiores velit expedita hic laborum quam magni ex enim officia, adipisci perferendis amet fugiat sequi! Mollitia architecto itaque.</p>
         <h4 className='doctorPageAboutTitle'>Education</h4>
         <div className='doctorPageAboutEducation'>

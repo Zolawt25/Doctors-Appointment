@@ -21,7 +21,7 @@ const Footer = () => {
         <a href="/">Blog</a>
       </div>
       <div className='footerLinks'>
-        <h4>I wbat to:</h4>
+        <h4>I want to:</h4>
         <a href="/">Find a Doctor</a>
         <a href="/">Request an Appointment</a>
         <a href="/">Find a Location</a>

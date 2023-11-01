@@ -404,8 +404,18 @@ body {
 .doctorsWrapper{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 5vw;
     margin-top: 70px;
+}
+.doctorsDoctor{
+    width: 28%;
+}
+.doctorsImg{
+    width: 100%;
+    display: flex;
+}
+.doctorsImg img{
+    width: 100%;
 }
 .doctorsDoctor h3{
     color: #111;
@@ -949,4 +959,11 @@ body {
     border: none;
     border-radius: 5px;
     margin-top: 7px;
+}
+.loadingContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
 }

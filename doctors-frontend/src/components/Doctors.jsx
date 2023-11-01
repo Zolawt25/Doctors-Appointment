@@ -1,8 +1,21 @@
-import React, { useState } from 'react'
-import { doctors } from "../assets/data/doctors"
+import { useState, useEffect } from 'react'
+// import { doctors } from "../assets/data/doctors"
 import { East, Star } from '@mui/icons-material'
+import axios from 'axios'
 const Doctors = () => {
-    const [doctor, setDoctor] = useState(doctors)
+    const [doctor, setDoctor] = useState([])
+   
+ 
+ 
+ 
+ 
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            const res = await axios.get("http://localhost:3000/api/doctors")
+            setDoctor(res.data.doctor)
+        }
+        fetchData()
+    },[])
     return (
         <div className='doctorsContainer'>
         <h2>Our great doctors</h2>
@@ -12,7 +25,7 @@ const Doctors = () => {
             {
                 doctor.map((item)=>{
                     return(
-                        <div className='doctorsDoctor' key={item.id}>
+                        <div className='doctorsDoctor' key={item._id}>
                             <div className='doctorsImg'>
                                 <img src={item.photo} alt={item.name} />
                             </div>
@@ -21,12 +34,12 @@ const Doctors = () => {
                                 <p>{item.specialty}</p>
                                 <div className='doctorsStar'>
                                     <span><Star style={{color: "gold", fontSize: "17px"}}/></span>
-                                    <span>{item.avgRating}</span>
+                                    <span>4.5</span>
                                 </div>
                             </div>
                             <div className='doctorsHospital'>
                                 <p>{item.hospital}</p>
-                                <a href='/find/aaa' className='doctorsHospitalIcon'>
+                                <a href={`/find/${item._id}`} className='doctorsHospitalIcon'>
                                     <East style={{fontSize: "15px", color: "#111"}}/>
                                 </a>
                             </div>
