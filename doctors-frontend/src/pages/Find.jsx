@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
-// import { doctors } from "../assets/data/doctors"
 import { East, Star } from '@mui/icons-material'
 import Footer from '../components/Footer'
 import axios from 'axios'

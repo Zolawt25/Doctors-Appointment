@@ -53,6 +53,34 @@ body {
     box-shadow: 0px 0px 9px -1px;
     transition: 0.5s;
 }
+.navUserContainer{
+    display: flex;
+    align-items: center;
+}
+.navUserContainer div{
+    height: 45px;
+    width: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+    border-radius: 100%;
+    margin-right: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navUserContainer button{
+    color: #dcf1fd;
+    font-size: 12px;
+    background-color: #1350ee;
+    padding: 7px 15px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 9px -1px;
+    border: none;
+    cursor: pointer;
+}
 
 /* Header */
 

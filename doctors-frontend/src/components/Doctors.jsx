@@ -2,17 +2,24 @@ import { useState, useEffect } from 'react'
 // import { doctors } from "../assets/data/doctors"
 import { East, Star } from '@mui/icons-material'
 import axios from 'axios'
+import Loading from './Loading'
 const Doctors = () => {
     const [doctor, setDoctor] = useState([])
-   
+   const [isLoading, setIsLoading] = useState(false)
  
  
  
  
     useEffect(()=>{
         const fetchData = async ()=>{
-            const res = await axios.get("http://localhost:3000/api/doctors")
-            setDoctor(res.data.doctor)
+            try {
+                setIsLoading(true)
+                const res = await axios.get("http://localhost:3000/api/doctors")
+                setDoctor(res.data.doctor)
+                setIsLoading(false)
+            } catch (error) {
+                alert("sorry something went wrong!")
+            }
         }
         fetchData()
     },[])
@@ -22,6 +29,9 @@ const Doctors = () => {
         <p className='serviceP'>World-class care for evryone. Our health system offers</p>
         <p className='serviceP'>unmatched, expert health care.</p>
         <div className='doctorsWrapper'>
+        {isLoading && <div className='loadingContainer'>
+            <Loading/>
+        </div>}
             {
                 doctor.map((item)=>{
                     return(
