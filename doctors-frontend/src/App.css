@@ -766,6 +766,10 @@ body {
     align-items: center;
     margin-bottom: 7px;
 }
+.doctorPageReviewStar{
+    display: flex;
+    align-items: center;
+}
 .doctorPageReviewImg img{
     width: 40px;
     height: 40px;
@@ -833,6 +837,7 @@ body {
 }
 .feedbackInput textarea{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px;
 }
 .doctorPageRight{
     flex: 1.3;
