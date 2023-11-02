@@ -31,21 +31,44 @@ const DoctorPage = () => {
     const decode = token ? jwtDecode(token) : ""
 
     const addComment = async ()=>{
-        const res = await axios.post(`http://localhost:3000/api/doctor/${id}/comments`, {
-            comment: message, doctorId: id, username: decode.name,
-            userId: decode.userId, rating: value
-        })
-        setAbout(true)
-        setTimeout(async () => {
-            setAbout(false)
-        }, 300);
-        setAddComment(!AddComment)
-        return res
+        if (!token) {
+            alert("you must login first")
+        }else{
+            const res = await axios.post(`http://localhost:3000/api/doctor/${id}/comments`, {
+                comment: message, doctorId: id, username: decode.name,
+                userId: decode.userId, rating: value
+            })
+            setAbout(true)
+            setTimeout(async () => {
+                setAbout(false)
+            }, 300);
+            setAddComment(!AddComment)
+            return res
+        }
+    }
+    const deleteComment = async (commentId)=>{
+        try {
+            const res = await axios.delete(`http://localhost:3000/api/doctor/${id}/comments/${commentId}`)
+            setAbout(true)
+            setTimeout(async () => {
+                setAbout(false)
+            }, 300);
+            setAddComment(!AddComment)
+            return res
+            
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
     useEffect(()=>{
         const fetchData = async()=>{
             const res = await axios.get(`http://localhost:3000/api/doctor/${id}`)
             setDoctor([res.data.doctor])
+            setAbout(false)
+            setTimeout(() => {
+                setAbout(true)
+            }, 1);
         }
         fetchData()
     },[])
@@ -55,7 +78,7 @@ const DoctorPage = () => {
             setComment(res.data.comment)
         }
         fetchData()
-    },[AddComment])
+    },[AddComment, about])
 
     useEffect(()=>{
          const filtered = comment.filter((item)=>{
@@ -63,19 +86,29 @@ const DoctorPage = () => {
                     return item
                 }
             })
-            console.log(filtered)
             setFilteredComment(filtered)
     },[AddComment, about])
     
-    const deleteComment = async (commentId)=>{
-        const res = await axios.delete(`http://localhost:3000/api/doctor/${id}/comments/${commentId}`)
-        setAbout(true)
-        setTimeout(async () => {
-            setAbout(false)
-        }, 300);
-        setAddComment(!AddComment)
-        return res
-    }
+    let ave = [] 
+    const total = ()=> filteredcomment.forEach((item)=>{
+        ave =  [...ave, item.rating]
+      })  
+      total()
+      let average = 0
+      const findAverage = ()=>{
+        if (ave.length === 0) {
+          average = 0
+        }else{
+          for (let index = 0; index < ave.length; index++) {
+          let element = ave[index];
+          average += element
+          }
+          average =Number(average / ave.length).toFixed(1)
+        }
+         
+      }
+      findAverage()
+      
     return (
         <div>
             <Navbar/>
@@ -91,7 +124,7 @@ const DoctorPage = () => {
                                     <div className='doctorPageInfo'>
                                         <p className='doctorPageInfoP'>{item.specialty}</p>
                                         <h4>{item.name}</h4>
-                                        <span><Star style={{color: "gold", fontSize: "17px"}}/> 4.5<i>(2)</i></span>
+                                        <span><Star style={{color: "gold", fontSize: "17px"}}/> {average === 0 ? "Not Rated" : average}<i>({filteredcomment.length})</i></span>
                                         <p className='doctorPageInfoSkill'>Specialization in {item.specialty}</p>
                                     </div>
                                 </div>
@@ -101,12 +134,12 @@ const DoctorPage = () => {
                                         <p className={!about && "doctorPageLinksA"} onClick={()=>setAbout(false)}>Feedback</p>
                                     </div>
                                     <div className='doctorPageDesc'>
-                                        {
-                                            about ?  <AboutDoctor name={item.name}/>
-                                            :
-                                            <div className='doctorPageFeedback'>
-                                            <h4 className='doctorPageAboutTitle'>All Reviews({filteredcomment.length})</h4>
-                                            {filteredcomment.length === 0 && <p>be first to comment...</p>}
+                                        
+                                              <div style={{display: `${about? "block" : "none"}`}}><AboutDoctor name={item.name}/></div>
+                                            
+                                            <div className='doctorPageFeedback' style={{display: `${about? "none" : "block"}`}}>
+                                            <h4 className='doctorPageAboutTitle' id='review'>All Reviews({filteredcomment.length})</h4>
+                                            {filteredcomment.length === 0 && <p style={{fontSize: "14px", color: "#444"}}>be first to comment...</p>}
                                             {filteredcomment.map((item)=>{
                                                 let date = new Date(item.createdAt).toString().slice(0, 16)
                                                 return  <div className='doctorPageReviewCont' key={item._id}>
@@ -125,7 +158,7 @@ const DoctorPage = () => {
                                                             <Rating name="read-only" value={item.rating} readOnly size="small"/>
                                                             </Stack>
                                                             {decode.userId === item.userId &&
-                                                                <div onClick={()=> deleteComment(item.doctorId)}>
+                                                                <div onClick={()=> deleteComment(item._id)}>
                                                                     <Delete style={{fontSize: "15px", marginLeft: "8px", cursor: "pointer", color: "#1350ee"}}/>
                                                                 </div>
                                                              }
@@ -159,7 +192,7 @@ const DoctorPage = () => {
                                                 
                                                 </div>
                                             </div>
-                                        }
+                                        
                                     </div>
                                 </div>
                             </div>
