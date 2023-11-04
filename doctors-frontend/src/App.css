@@ -770,11 +770,19 @@ body {
     display: flex;
     align-items: center;
 }
-.doctorPageReviewImg img{
+.doctorPageReviewImg{
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    background-color: #01b5c538;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.doctorPageReviewImg p{
+    text-transform: uppercase;
+    font-weight: 600;
 }
 .doctorPageReviewName{
     font-size: 14px;
@@ -921,13 +929,19 @@ body {
     background-color: #E3E9F9;
 }
 .loginForm button{
-    cursor: pointer;
-    padding: 10px 0;
-    background-color: #1350ee;
-    color: #dcf1fd;
-    border: none;
-    border-radius: 5px;
-    margin-top: 7px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 39%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #dcf1fd;
+  background-color: #1350ee;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 30px;
 }
 .loginFormAccount{
     width: 100%;
@@ -985,13 +999,19 @@ body {
     background-color: #E3E9F9;
 }
 .registerRight button{
-    cursor: pointer;
-    padding: 10px 0;
-    background-color: #1350ee;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 39%;
+    font-size: 16px;
+    font-weight: bold;
     color: #dcf1fd;
+    background-color: #1350ee;
     border: none;
-    border-radius: 5px;
-    margin-top: 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 30px;
 }
 .loadingContainer{
     width: 100%;

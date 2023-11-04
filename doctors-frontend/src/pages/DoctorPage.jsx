@@ -11,6 +11,8 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import Cookies from 'universal-cookie';
 import jwtDecode from 'jwt-decode';
+import BtnLoading from '../components/BtnLoading';
+import Loading from '../components/Loading';
 
 const DoctorPage = () => {
     const [about, setAbout] = useState(true)
@@ -18,10 +20,8 @@ const DoctorPage = () => {
     const [comment, setComment] = useState([])
     const [filteredcomment, setFilteredComment] = useState([])
     const [message, setMessage] = useState("")
-
-
-
-
+    const [btnLoading, setBtnLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     const [isTrue, setIsTrue] = useState(true)
     const [AddComment, setAddComment] = useState(true)
     const [value, setValue] = useState(0)
@@ -34,15 +34,14 @@ const DoctorPage = () => {
         if (!token) {
             alert("you must login first")
         }else{
+            setBtnLoading(true)
             const res = await axios.post(`http://localhost:3000/api/doctor/${id}/comments`, {
                 comment: message, doctorId: id, username: decode.name,
                 userId: decode.userId, rating: value
             })
             setAbout(true)
-            setTimeout(async () => {
-                setAbout(false)
-            }, 300);
             setAddComment(!AddComment)
+            setBtnLoading(false)
             return res
         }
     }
@@ -50,9 +49,6 @@ const DoctorPage = () => {
         try {
             const res = await axios.delete(`http://localhost:3000/api/doctor/${id}/comments/${commentId}`)
             setAbout(true)
-            setTimeout(async () => {
-                setAbout(false)
-            }, 300);
             setAddComment(!AddComment)
             return res
             
@@ -63,7 +59,9 @@ const DoctorPage = () => {
     }
     useEffect(()=>{
         const fetchData = async()=>{
+            setIsLoading(true)
             const res = await axios.get(`http://localhost:3000/api/doctor/${id}`)
+            setIsLoading(false)
             setDoctor([res.data.doctor])
             setAbout(false)
             setTimeout(() => {
@@ -76,6 +74,9 @@ const DoctorPage = () => {
         const fetchData = async()=>{
             const res = await axios.get(`http://localhost:3000/api/doctor/${id}/comments`)
             setComment(res.data.comment)
+            setTimeout(async () => {
+                setAbout(false)
+            }, 1);
         }
         fetchData()
     },[AddComment, about])
@@ -112,6 +113,9 @@ const DoctorPage = () => {
     return (
         <div>
             <Navbar/>
+            {isLoading && <div className='loadingContainer'>
+                    <Loading/>
+            </div>}
             {
                 doctor.map((item)=>{
                     return (
@@ -146,7 +150,8 @@ const DoctorPage = () => {
                                                         <div className='doctorPageReviewId'>
                                                             <div className='doctorPageReviewProfile'>
                                                                 <div className='doctorPageReviewImg'>
-                                                                    <img src="/img/doctor-img03.png" alt="doctor-img03.png" />
+                                                                    {/* <img src="/img/doctor-img03.png" alt="doctor-img03.png" /> */}
+                                                                    <p>{item.username.slice(0,2)}</p>
                                                                 </div>
                                                                 <div>
                                                                     <p className='doctorPageReviewName'>{item.username}</p>
@@ -185,7 +190,7 @@ const DoctorPage = () => {
                                                         <div className='feedbackInput'>
                                                             <p>Share your feedback or suggestions.*</p>
                                                             <textarea rows="8" cols="70" placeholder='Write your message...' onChange={(e)=> setMessage(e.target.value)}></textarea>
-                                                            <button onClick={()=>addComment()}>Submit Feedback</button>
+                                                            <button onClick={()=>addComment()} style={{display: "block", transition: "0.3s"}}>{btnLoading ? <BtnLoading/> : "Submit Feedback"}</button>
                                                         </div>
                                                     </div>
                                                 }

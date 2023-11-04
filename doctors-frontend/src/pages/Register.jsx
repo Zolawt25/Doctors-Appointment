@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import Cookies from "universal-cookie"
+import BtnLoading from "../components/BtnLoading"
 
 const Register = () => {
   const [name, setname] = useState('')
@@ -10,19 +11,24 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [emailErr, setEmailErr] = useState("")
   const [nameErr, setNameErr] = useState(false)
+  const [btnLoading, setBtnLoading] = useState(false)
   const [passwordErr, setPasswordErr] = useState(false)
   const navigate = useNavigate()
   const cookie = new Cookies()
 
   const handleRegister = async ()=>{
     try {
+      setBtnLoading(true)
       const res = await axios.post("http://localhost:3000/user/register", {username: name, email, password})
       cookie.set("user", res.data.token)
+      setBtnLoading(false)
       navigate("/")
     } catch (error) {
+      setBtnLoading(true)
       !name ? setNameErr(true) : setNameErr(false)
       !password ? setPasswordErr(true) : setPasswordErr(false)
       email ? setEmailErr(error.response.data.email) : setEmailErr("you must provide email")
+      setBtnLoading(false)
     }
   }
   return (
@@ -42,7 +48,7 @@ const Register = () => {
                     {emailErr && <p style={{color: "red", fontSize: "12px", marginBottom: "10px"}}>{emailErr} </p>}
                     <input type="password" placeholder="enter password..." onChange={(e)=>setPassword(e.target.value)}/>
                     {passwordErr && <p style={{color: "red", fontSize: "12px", marginBottom: "10px"}}> you must provide password</p>}
-                    <button type='button' onClick={handleRegister}>Register</button>
+                    <button type='button' onClick={handleRegister}>{btnLoading ? <BtnLoading/> : "Register"}</button>
                     <div className="loginFormAccount">
                     <p>Already have an account?</p>
                     <a href="/login">Login</a>

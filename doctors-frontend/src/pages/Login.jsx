@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar"
 import { useNavigate } from "react-router-dom"
 import Cookies from "universal-cookie"
 import axios from "axios"
+import BtnLoading from "../components/BtnLoading"
 
 const Login = () => {
     
@@ -10,6 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
     const [emailErr, setEmailErr] = useState("")
     const [passwordErr, setPasswordErr] = useState("")
+    const [btnLoading, setBtnLoading] = useState(false)
     const navigate = useNavigate()
     const cookie = new Cookies()
 
@@ -17,12 +19,16 @@ const Login = () => {
 
   const handleLogin = async ()=>{
     try {
+        setBtnLoading(true)
         const res = await axios.post("http://localhost:3000/user/login", { email, password })
         cookie.set("user", res.data.token)
+        setBtnLoading(false)
         navigate("/")
     } catch (error) {
+        setBtnLoading(true)
         setEmailErr(error.response.data.email)
         setPasswordErr(error.response.data.password)
+        setBtnLoading(false)
     }
     
   }
@@ -38,7 +44,7 @@ const Login = () => {
                     {emailErr && <p style={{color: "red", fontSize: "12px", marginBottom: "10px"}}>{emailErr} </p>}
                     <input type="password" placeholder="enter password..." onChange={(e)=> setPassword(e.target.value)}/>
                     {passwordErr && <p style={{color: "red", fontSize: "12px", marginBottom: "10px"}}>{passwordErr} </p>}
-                    <button type='button' onClick={()=> handleLogin()}>Login</button>
+                    <button type='button' onClick={()=> handleLogin()}>{btnLoading ? <BtnLoading/> : "Login"}</button>
                 </form>
                 <div className="loginFormAccount">
                     <p>Don't have an account?</p>
