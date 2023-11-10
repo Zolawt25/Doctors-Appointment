@@ -28,7 +28,7 @@ userSchema.pre("save", async function(next){
     next()
 })
 userSchema.methods.createToken = function(){
-    return jwt.sign({name: this.username, userId: this._id}, "fjdkdjfkejfgutwuierwur", {expiresIn: "30d"})
+    return jwt.sign({name: this.username, userId: this._id}, process.env.JWT, {expiresIn: "30d"})
 } 
 userSchema.methods.compare = async function(password){
     const match = await bcrypt.compare(password, this.password)

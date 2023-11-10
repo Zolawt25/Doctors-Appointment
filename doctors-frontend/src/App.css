@@ -1035,6 +1035,55 @@ body {
     height: 40vh;
 }
 
+/* ContactUs */
+
+.contactWrapper{
+    padding: 100px 5% 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contactWrapper h2{
+    text-align: center;
+    font-size: 35px;
+    color: #111;
+    margin-bottom: 15px;
+}
+.contactWrapper p{
+    color: #444;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+/* Booked */
+
+.booked-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 150px 0 50px;
+  }
+  .booked-wrapper h2{
+    font-family: var(--subtitle-font-name);
+    font-size: 50px;
+    margin-top: 10px;
+  }
+  .booked-wrapper p{
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+    margin-top: 10px;
+  }
+  .booked-wrapper a{
+    margin-top: 20px;
+    padding: 7px 50px;
+    color: #fcfbfa;
+    background-color: #1350ee;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 14px;
+  }
 @media screen and (max-width: 1156px){
     .headerContainer{
         flex-direction: column;
@@ -1164,6 +1213,9 @@ body {
     }
     .registerRapperContainer{
         justify-content: center;
+    }
+    .contactWrapper{
+        align-items: normal;
     }
 }
 @media screen and (max-width: 550px){

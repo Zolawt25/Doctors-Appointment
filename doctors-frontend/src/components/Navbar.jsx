@@ -33,7 +33,7 @@ const Navbar = () => {
             <a href="/">Home</a>
             <a href="/services">Service</a>
             <a href="/find">Find a doctor</a>
-            <a href="/">Contact</a>
+            <a href="/contact">Contact</a>
             <span onClick={()=>setResponsiveBar(false)}><Close/></span>
         </div>
         <div className='nav-right'>

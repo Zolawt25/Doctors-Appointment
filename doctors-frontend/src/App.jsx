@@ -6,6 +6,8 @@ import Find from './pages/Find';
 import DoctorPage from './pages/DoctorPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import ContactUs from './pages/ContactUs';
+import Booked from './pages/Booked';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path='/find/:id' element={<DoctorPage/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
+          <Route path='/contact' element={<ContactUs/>}/>
+          <Route path='/booked' element={<Booked/>}/>
         </Routes>
       </Router>
     </>

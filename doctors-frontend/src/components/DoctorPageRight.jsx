@@ -22,7 +22,7 @@ const DoctorPageRight = () => {
                 <p>5:00pm - 8:30pm</p>
             </div>
         </div>
-        <a href="/">Book Appointment</a>
+        <a href="/booked">Book Appointment</a>
       </div>
     </div>
   )
