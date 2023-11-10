@@ -23,6 +23,9 @@ body {
     width: 100%;
     z-index: 2;
 }
+.nav-container span{
+    display: none;
+}
 .active{
     background: url(/public/img/header-bg.png); 
 }
@@ -32,6 +35,10 @@ body {
 .nav-center{
     display: flex;
     column-gap: 30px;
+    transition: 0.5s;
+}
+.nav-center span{
+    display: none;
 }
 .nav-center a{
     text-decoration: none;
@@ -42,6 +49,14 @@ body {
 }
 .nav-center a:hover{
     color: #1350ee;
+}
+.nav-right{
+    display: flex;
+    align-items: center;
+}
+.nav-right span{
+    margin-left: 13px;
+    cursor: pointer;
 }
 .nav-right a{
     text-decoration: none;
@@ -85,7 +100,6 @@ body {
 /* Header */
 
 .headerContainer{
-    /* height: 100vh; */
     background: url(/public/img/Blur.png);
     padding: 10% 10%;
     display: flex;
@@ -532,8 +546,8 @@ body {
 .questionContainer span{
     font-size: 25px;
     height: 25px;
-    border: 1px solid #222;
     width: 25px;
+    border: 1px solid #222;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -625,7 +639,7 @@ body {
     margin-bottom: 15px;
 }
 .findSearch form{
-    width: 30%;
+    width: 400px;
     display: flex;
     justify-content: space-between;
 }
@@ -1019,4 +1033,224 @@ body {
     align-items: center;
     justify-content: center;
     height: 40vh;
+}
+
+@media screen and (max-width: 1156px){
+    .headerContainer{
+        flex-direction: column;
+        padding: 15% 15%;
+    }
+    .headerRight{
+        display: none;
+    }
+    .featuresContainer{
+        align-items: center;
+    }
+    .featuresLeft{
+        width: 100%;
+    }
+    .featuresLeftImg1{
+        width: 300px;
+    }
+    .featuresLeftImg2{
+        width: 200px;
+        bottom: 10%;
+        left: 40%;
+    }
+    .questionsImg img{
+        width: 312px;
+    }
+    .vertualvertualRightImg1{
+        width: 400px;
+    }
+    .vertualvertualRightImg2{
+        width: 200px;
+        height: 100px;
+        right: 240px;
+    }
+    .vertualConatainer{
+        align-items: center;
+    }
+    .loginForm{
+        width: 450px;
+    }
+    .registerLeft img{
+        width: 380px;
+    }
+    .registerRight{
+        flex: none;
+        width: 380px;
+    }
+}
+@media screen and (max-width: 870px){
+   .serviceWrapper{
+    flex-direction: column;
+    align-items: center;justify-content: center;
+   } 
+   .serviceIconContainer{
+    width: 70%;
+    margin-top: 40px;
+   }
+   .featuresLeftImg1{
+    width: 300px;
+   }
+   .nav-container span{
+    display: block;
+    }
+   .nav-center{
+    position: absolute;
+    top: 0px;
+    right: -3300px;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding-top: 100px;
+   }
+   .nav-center a{
+    margin-top: 50px;
+    font-size: large;
+   }
+   .nav-center span{
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    cursor: pointer;
+    color: #222;
+   }
+   .questionsImg img{
+    width: 312px;
+   }
+   .vertualvertualRight{
+    display: none;
+   }
+   .featuresLeft{
+    display: none;
+   }
+   .questionsLeft{
+    display: none;
+   }
+   .medicalDescWrapper{
+    width: 40%;
+   }
+   .doctorsWrapper{
+    column-gap: 7vw;
+   }
+   .doctorsDoctor{
+    width: 42%;
+   }
+   .findSearch form{
+    width: 350px;
+   }
+   .doctorPageWrapper{
+    flex-direction: column;
+   }
+   .doctorPageLeft{
+    padding-right: unset;
+   }
+   .doctorPageRight{
+    flex: none;
+    width: 100%;
+    margin-top: 40px;
+   }
+   .loginForm{
+    width: 400px;
+    }
+    .registerLeft{
+        display: none;
+    }
+    .registerRapperContainer{
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 550px){
+    .medicalWrapper{
+        justify-content: center;
+    }
+    .medicalDescWrapper{
+        width: 85%;
+    }
+    .doctorsWrapper{
+        justify-content: center;
+    }
+    .doctorsDoctor{
+        width: 80%;
+    }
+    .questionContainer h3{
+        font-size: 15px;
+    }
+    .questionContainer span{
+        font-size: 20px;
+        height: auto;
+        width: auto; 
+        padding: 0 7px; 
+    }
+    .footerLogo{
+        margin-bottom: 15px;
+        flex: none;
+        width: 100%;
+    }
+    .footerLinks{
+        flex: none;
+        margin-right: 10px;
+    }
+    .navUserContainer div{
+        font-size: 15px;
+        height: 40px;
+        width: 40px;  
+    }
+    .headerLeft h1{
+        font-size: 35px;
+    }
+    .headerDesc{
+        font-size: 12px;
+    }
+    .headerLeft a{
+        font-size: 11px;
+    }
+    .headerExperience{
+        flex-wrap: wrap;
+        justify-content:unset;
+    }
+    .serviceContainer h2{
+        font-size: 30px;
+    }
+    .serviceIconContainer h3{
+        font-size: 18px;
+    }
+    .featuresRight h2{
+        font-size: 30px;
+    }
+    .medicalConatainer h2{
+        font-size: 30px;
+    }
+    .vertualvertualLeft h2{
+        font-size: 27px;
+        padding-right:unset;
+    }
+    .doctorsContainer h2{
+        font-size: 30px;
+    }
+    .questionsRight h2{
+        font-size: 30px;
+    }
+    .findSearch form{
+        width: 250px;
+    }
+    .feedbackInput textarea{
+        width: 100%;
+    }
+    .loginForm{
+        width: 95%;
+    }
+    .registerRapperContainer{
+        width: 100%;
+    }
+    .registerRight{
+        width: 90%;
+        padding: auto;
+    }
 }

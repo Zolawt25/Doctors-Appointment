@@ -79,7 +79,7 @@ const DoctorPage = () => {
             }, 1);
         }
         fetchData()
-    },[AddComment, about])
+    },[AddComment])
 
     useEffect(()=>{
          const filtered = comment.filter((item)=>{
