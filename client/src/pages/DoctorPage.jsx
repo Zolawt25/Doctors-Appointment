@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { Delete, Star } from '@mui/icons-material'
-// import Feedback from '../components/Feedback';
 import AboutDoctor from '../components/AboutDoctor';
 import Footer from "../components/Footer"
 import DoctorPageRight from '../components/DoctorPageRight';
@@ -35,7 +34,7 @@ const DoctorPage = () => {
             alert("you must login first")
         }else{
             setBtnLoading(true)
-            const res = await axios.post(`http://localhost:3000/api/doctor/${id}/comments`, {
+            const res = await axios.post(`https://doctors-appointment-server-eta.vercel.app/api/doctor/${id}/comments`, {
                 comment: message, doctorId: id, username: decode.name,
                 userId: decode.userId, rating: value
             })
@@ -47,7 +46,7 @@ const DoctorPage = () => {
     }
     const deleteComment = async (commentId)=>{
         try {
-            const res = await axios.delete(`http://localhost:3000/api/doctor/${id}/comments/${commentId}`)
+            const res = await axios.delete(`https://doctors-appointment-server-eta.vercel.app/api/doctor/${id}/comments/${commentId}`)
             setAbout(true)
             setAddComment(!AddComment)
             return res
@@ -60,7 +59,7 @@ const DoctorPage = () => {
     useEffect(()=>{
         const fetchData = async()=>{
             setIsLoading(true)
-            const res = await axios.get(`http://localhost:3000/api/doctor/${id}`)
+            const res = await axios.get(`https://doctors-appointment-server-eta.vercel.app/api/doctor/${id}`)
             setIsLoading(false)
             setDoctor([res.data.doctor])
             setAbout(false)
@@ -72,7 +71,7 @@ const DoctorPage = () => {
     },[])
     useEffect(()=>{
         const fetchData = async()=>{
-            const res = await axios.get(`http://localhost:3000/api/doctor/${id}/comments`)
+            const res = await axios.get(`https://doctors-appointment-server-eta.vercel.app/api/doctor/${id}/comments`)
             setComment(res.data.comment)
             setTimeout(async () => {
                 setAbout(false)

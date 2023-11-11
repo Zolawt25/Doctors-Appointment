@@ -19,7 +19,7 @@ const Register = () => {
   const handleRegister = async ()=>{
     try {
       setBtnLoading(true)
-      const res = await axios.post("http://localhost:3000/user/register", {username: name, email, password})
+      const res = await axios.post("https://doctors-appointment-server-eta.vercel.app/user/register", {username: name, email, password})
       cookie.set("user", res.data.token)
       setBtnLoading(false)
       navigate("/")

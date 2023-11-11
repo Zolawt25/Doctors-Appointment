@@ -12,7 +12,7 @@ const Doctors = () => {
         const fetchData = async ()=>{
             try {
                 setIsLoading(true)
-                const res = await axios.get("http://localhost:3000/api/doctors")
+                const res = await axios.get("https://doctors-appointment-server-eta.vercel.app/api/doctors")
                 setDoctor(res.data.doctor)
                 setIsLoading(false)
             } catch (error) {
@@ -23,7 +23,7 @@ const Doctors = () => {
     },[])
     useEffect(()=>{
         const fetchData = async()=>{
-            const res = await axios.get(`http://localhost:3000/api/doctor/doc/comments`)
+            const res = await axios.get(`https://doctors-appointment-server-eta.vercel.app/api/doctor/doc/comments`)
             setComment(res.data.comment)
         }
         fetchData()
