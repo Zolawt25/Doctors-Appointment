@@ -2,7 +2,7 @@ const Header = () => {
   return (
     <div className='headerContainer'>
       <div className='headerLeft'>
-        <h1>We help petients live a healthy, longer life.</h1>
+        <h1>We help patients live a healthy, longer life.</h1>
         <p className='headerDesc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aspernatur eum voluptatibus ipsam dignissimos fugiat rerum possimus quasi recusandae deserunt, accusamus rem.</p>
         <a href="/find">Request an Appointment</a>
         <div className='headerExperience'>
